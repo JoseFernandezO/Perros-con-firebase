@@ -1,0 +1,44 @@
+<ion-card class="dog-card">
+    <div class="dog-image-container">
+      <img [src]="dog.imageUrl" [alt]="dog.name" class="dog-image" />
+      <div class="dog-info-label">
+        <span>{{ dog.age }} años</span>
+        <span class="dot-separator">•</span>
+        <span>{{ dog.size === 'small' ? 'Pequeño' : dog.size === 'medium' ? 'Mediano' : 'Grande' }}</span>
+      </div>
+    </div>
+    
+    <ion-card-header>
+      <ion-card-title class="dog-name">{{ dog.name }}</ion-card-title>
+      <ion-card-subtitle class="dog-breed">{{ dog.breed }}</ion-card-subtitle>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <p class="dog-description">{{ dog.description }}</p>
+      
+      <div class="dog-tags">
+        <div class="tag-section">
+          <h4>Personalidad</h4>
+          <div class="tags">
+            <span *ngFor="let trait of dog.personality" class="tag personality-tag">{{ trait }}</span>
+          </div>
+        </div>
+        
+        <div class="tag-section">
+          <h4>Compatibilidad</h4>
+          <div class="tags">
+            <span *ngFor="let item of dog.compatibility" class="tag compatibility-tag">{{ item }}</span>
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+    
+    <div *ngIf="showActions" class="card-actions">
+      <ion-button fill="clear" class="favorite-button" (click)="toggleFavorite($event)">
+        <ion-icon slot="icon-only" [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
+      </ion-button>
+      <ion-button fill="solid" color="primary" class="match-button">
+        ¡Match!
+      </ion-button>
+    </div>
+  </ion-card>

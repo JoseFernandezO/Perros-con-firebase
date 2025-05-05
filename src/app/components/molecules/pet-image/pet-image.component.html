@@ -1,0 +1,8 @@
+<div class="pet-image-container">
+    <img [src]="imageUrl" alt="Pet image" class="pet-image">
+    <app-bookmark-button
+      [isBookmarked]="isBookmarked"
+      (bookmarkChange)="bookmarkChange.emit($event)"
+      class="bookmark-button">
+    </app-bookmark-button>
+</div>

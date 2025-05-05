@@ -1,0 +1,62 @@
+<!-- src/app/home/home.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="search-container">
+    <ion-searchbar
+      placeholder="Buscar Por Etiquetas"
+      [(ngModel)]="searchTerm"
+      (ionInput)="onSearchChange($event)"
+      animated="true"
+      showCancelButton="focus">
+    </ion-searchbar>
+  </div>
+  
+  <div class="filter-container">
+    <div class="filter-tabs">
+      <div 
+        class="filter-tab" 
+        [class.active]="selectedCategory === 'todos'"
+        (click)="selectCategory('todos')">
+        Todos
+      </div>
+      <div 
+        class="filter-tab" 
+        [class.active]="selectedCategory === 'tranquilo'"
+        (click)="selectCategory('tranquilo')">
+        Tranquilo
+      </div>
+      <div 
+        class="filter-tab" 
+        [class.active]="selectedCategory === 'cachorro'"
+        (click)="selectCategory('cachorro')">
+        Cachorro
+      </div>
+      <div 
+        class="filter-tab" 
+        [class.active]="selectedCategory === 'energetico'"
+        (click)="selectCategory('energetico')">
+        Enérgico
+      </div>
+    </div>
+  </div>
+  
+  <div class="pets-container">
+    <app-pet-card
+      *ngFor="let pet of filteredPets"
+      [pet]="pet"
+      (cardClick)="onPetSelected($event)"
+      (bookmark)="onBookmarkChange($event)">
+    </app-pet-card>
+    
+    <div *ngIf="filteredPets.length === 0" class="empty-state">
+      <p>No se encontraron mascotas con los filtros actuales.</p>
+    </div>
+  </div>
+</ion-content>

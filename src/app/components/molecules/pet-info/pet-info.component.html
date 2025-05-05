@@ -1,0 +1,16 @@
+<div class="pet-info-container">
+    <div class="header">
+      <h2 class="pet-name">{{ name }}</h2>
+      <app-gender-icon [gender]="gender"></app-gender-icon>
+    </div>
+    
+    <p class="pet-breed">{{ breed }}</p>
+    <p class="pet-age">{{ age }} años</p>
+    
+    <div class="trait-container">
+      <app-pet-trait 
+        [trait]="trait" 
+        [iconName]="getTraitIcon()">
+      </app-pet-trait>
+    </div>
+  </div>

@@ -1,0 +1,29 @@
+:host {
+    display: block;
+    
+    ion-button {
+      --background: transparent;
+      --background-hover: transparent; 
+      --background-focused: transparent; 
+      --background-activated: transparent;
+      --padding-start: 0;
+      --padding-end: 0;
+      margin: 0;
+      width: 40px;
+      height: 40px;
+      
+      /* Elimina el efecto de ripple */
+      --ripple-color: transparent;
+      
+      /* Estilos para el icono */
+      ion-icon {
+        font-size: 28px;
+        transition: transform 0.2s ease;
+      }
+      
+      /* Efecto al hacer clic */
+      &:active ion-icon {
+        transform: scale(1.2);
+      }
+    }
+}

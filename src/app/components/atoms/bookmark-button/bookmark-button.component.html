@@ -1,0 +1,10 @@
+<ion-button 
+  fill="clear" 
+  (click)="toggleBookmark()"
+  [attr.aria-label]="isBookmarked ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+  class="heart-button">
+  <ion-icon 
+    [name]="isBookmarked ? 'heart' : 'heart-outline'"
+    [color]="isBookmarked ? 'danger' : 'medium'">
+  </ion-icon>
+</ion-button>

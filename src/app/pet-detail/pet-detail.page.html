@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="true" *ngIf="pet" class="ion-no-padding">
+  <!-- Hero Image with Header -->
+  <div class="hero-section">
+    <img [src]="pet.imageUrl" class="pet-image">
+    
+    <!-- Header -->
+    <div class="header-overlay">
+      <ion-buttons>
+        <ion-button (click)="goBack()">
+          <ion-icon slot="icon-only" name="arrow-back" color="light"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      
+      <h1 class="pet-name">{{ pet.name }}</h1>
+      
+      <ion-button (click)="toggleFavorite()" fill="clear" class="favorite-button">
+        <ion-icon 
+          [name]="isFavorite ? 'heart' : 'heart-outline'"
+          [color]="isFavorite ? 'danger' : 'light'">
+        </ion-icon>
+      </ion-button>
+    </div>
+  </div>
+  
+  <!-- Main Content (white background) -->
+  <div class="content-container">
+    <!-- Info Cards -->
+    <div class="info-cards">
+      <div class="info-card age-card">
+        <div class="card-label">Edad</div>
+        <div class="card-value">{{ formatAge(pet.age) }}</div>
+      </div>
+      
+      <div class="info-card gender-card">
+        <div class="card-label">Sexo</div>
+        <div class="card-value">{{ pet.gender === 'male' ? 'Macho' : 'Hembra' }}</div>
+      </div>
+      
+      <div class="info-card weight-card">
+        <div class="card-label">Peso</div>
+        <div class="card-value">{{ pet.weight }}</div>
+      </div>
+    </div>
+    
+    <!-- About Section -->
+    <div class="about-section">
+      <h2>Acerca de {{ pet.name }}</h2>
+      <p>{{ pet.description }}</p>
+    </div>
+    
+    <!-- Attributes Section -->
+    <div class="attributes-section">
+      <h2>Otros Atributos</h2>
+      <div class="attributes-grid">
+        <div class="attribute-item" *ngFor="let attribute of pet.attributes">
+          <ion-icon [name]="getIconForAttribute(attribute)" color="primary"></ion-icon>
+          <span>{{ attribute }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Match Button -->
+    <div class="match-button-container">
+      <ion-button expand="block" color="danger" (click)="onMatch()">
+        MATCH
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

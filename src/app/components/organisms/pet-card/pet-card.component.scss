@@ -1,0 +1,97 @@
+// src/app/components/organisms/pet-card/pet-card.component.scss
+:host {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.pet-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    height: 170px;
+  }
+  
+  .pet-image {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .bookmark-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 2;
+      
+      ion-icon {
+        font-size: 24px;
+        color: var(--ion-color-danger);
+        filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+      }
+    }
+  }
+  
+  .pet-info {
+    width: 60%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    
+    .pet-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+      color: #4e4949;
+      
+      h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+        margin-right: 8px;
+      }
+      
+      ion-icon {
+        font-size: 18px;
+      }
+    }
+    
+    .pet-breed {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .pet-age {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .pet-trait {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      
+      ion-icon {
+        color: var(--ion-color-primary);
+        margin-right: 6px;
+      }
+      
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+}

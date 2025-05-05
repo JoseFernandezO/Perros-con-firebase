@@ -1,0 +1,7 @@
+{
+  "name": "perros",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

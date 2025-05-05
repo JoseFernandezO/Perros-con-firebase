@@ -1,0 +1,12 @@
+.favorite-button {
+    cursor: pointer;
+    img {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.2s ease-in-out;
+    }
+  
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }

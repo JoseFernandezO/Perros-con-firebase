@@ -1,0 +1,31 @@
+<!-- src/app/favorites/favorites.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Favoritos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Favoritos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <div class="favorites-container">
+    <app-pet-card
+      *ngFor="let pet of favoritePets"
+      [pet]="pet"
+      (click)="onPetSelected(pet.id)"
+      (bookmark)="onBookmarkChange($event)">
+    </app-pet-card>
+    
+    <div *ngIf="favoritePets.length === 0" class="empty-state">
+      <ion-icon name="heart-outline"></ion-icon>
+      <h3>No tienes favoritos aún</h3>
+      <p>Marca mascotas como favoritas para verlas aquí</p>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,27 @@
+<!-- // src/app/components/organisms/pet-card/pet-card.component.html -->
+<div class="pet-card" (click)="onCardClick()">
+  <div class="card-content">
+    <div class="pet-image">
+      <img [src]="pet.imageUrl" [alt]="pet.name">
+      <div class="bookmark-button" (click)="onBookmarkClick($event)">
+        <ion-icon 
+          [name]="pet.isBookmarked ? 'heart' : 'heart-outline'" 
+          [color]="pet.isBookmarked ? 'danger' : 'medium'">
+        </ion-icon>
+      </div>
+    </div>
+    <div class="pet-info">
+      <div class="pet-header">
+        <h3>{{ pet.name }}</h3>
+        <ion-icon *ngIf="pet.gender === 'male'" name="male" color="primary"></ion-icon>
+        <ion-icon *ngIf="pet.gender === 'female'" name="female" color="danger"></ion-icon>
+      </div>
+      <p class="pet-breed">{{ pet.breed }}</p>
+      <p class="pet-age">{{ displayAge(pet.age) }}</p>
+      <div class="pet-trait">
+        <ion-icon name="paw"></ion-icon>
+        <span>{{ pet.trait }}</span>
+      </div>
+    </div>
+  </div>
+</div>

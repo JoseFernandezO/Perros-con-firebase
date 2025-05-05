@@ -1,0 +1,40 @@
+// src/app/favorites/favorites.page.scss
+ion-content {
+    --background: #f8f9fa;
+  }
+  
+  .favorites-container {
+    padding-bottom: 80px;
+    
+    app-pet-card {
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+    
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+      text-align: center;
+      color: var(--ion-color-medium);
+      
+      ion-icon {
+        font-size: 64px;
+        margin-bottom: 16px;
+        opacity: 0.6;
+      }
+      
+      h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      
+      p {
+        font-size: 16px;
+        max-width: 240px;
+      }
+    }
+  }
